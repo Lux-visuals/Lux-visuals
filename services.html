@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | LUX Visualization Studio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           LUX SERVICES PAGE
+           ===================================================== */
+
+        .services-page {
+            background: #111;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* HERO
+        ===================================================== */
+
+        .services-hero {
+            min-height: 90vh;
+            padding: 150px 7% 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #292929;
+        }
+
+        .services-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(
+                    circle at 75% 25%,
+                    rgba(255,255,255,.08),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.03),
+                    transparent 50%
+                );
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 80px 80px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                transparent,
+                black 25%,
+                black 75%,
+                transparent
+            );
+        }
+
+        .services-topline {
+            position: absolute;
+            top: 120px;
+            left: 7%;
+            right: 7%;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 3px;
+
+            z-index: 2;
+        }
+
+        .services-hero h1 {
+            position: relative;
+            z-index: 2;
+
+            max-width: 1100px;
+
+            margin: 0;
+
+            font-size: clamp(65px, 11vw, 155px);
+            line-height: .82;
+
+            font-weight: 400;
+
+            letter-spacing: -7px;
+        }
+
+        .services-hero h1 span {
+            color: #666;
+        }
+
+        .hero-bottom {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            margin-top: 65px;
+
+            max-width: 900px;
+        }
+
+        .hero-bottom p {
+            margin: 0;
+
+            color: #888;
+
+            font-size: 14px;
+            line-height: 1.8;
+
+            max-width: 450px;
+        }
+
+        .hero-scroll {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            color: #777;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-scroll::before {
+            content: "";
+
+            width: 55px;
+            height: 1px;
+
+            background: #555;
+        }
+
+
+        /* INTRO
+        ===================================================== */
+
+        .services-intro {
+            padding: 130px 7%;
+
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+
+            gap: 10%;
+
+            border-bottom: 1px solid #292929;
+        }
+
+        .intro-number {
+            color: #555;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .services-intro h2 {
+            margin: 0 0 30px;
+
+            font-size: clamp(40px, 5vw, 75px);
+
+            font-weight: 400;
+
+            line-height: .98;
+
+            letter-spacing: -4px;
+        }
+
+        .services-intro h2 span {
+            color: #666;
+        }
+
+        .services-intro p {
+            max-width: 650px;
+
+            color: #888;
+
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+
+        /* PACKAGE SECTION
+        ===================================================== */
+
+        .package-section {
+            padding: 140px 7% 40px;
+        }
+
+        .package-header {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: flex-end;
+
+            gap: 40px;
+
+            margin-bottom: 70px;
+        }
+
+        .package-header small {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+        }
+
+        .package-header h2 {
+            margin: 15px 0 0;
+
+            font-size: clamp(50px, 7vw, 100px);
+
+            line-height: .9;
+
+            font-weight: 400;
+
+            letter-spacing: -5px;
+        }
+
+        .package-note {
+            max-width: 280px;
+
+            color: #777;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* PACKAGE CARDS
+        ===================================================== */
+
+        .package-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 1px;
+
+            background: #333;
+
+            border: 1px solid #333;
+        }
+
+        .lux-package {
+            position: relative;
+
+            min-height: 590px;
+
+            padding: 35px;
+
+            background: #111;
+
+            display: flex;
+            flex-direction: column;
+
+            transition:
+                transform .45s cubic-bezier(.22,1,.36,1),
+                background .4s ease;
+        }
+
+        .lux-package:hover {
+            transform: translateY(-10px);
+
+            background: #171717;
+
+            z-index: 3;
+        }
+
+        .lux-package.featured {
+            background: #181818;
+        }
+
+        .lux-package.featured::before {
+            content: "MOST REQUESTED";
+
+            position: absolute;
+
+            top: 0;
+            right: 0;
+
+            padding: 9px 13px;
+
+            background: #fff;
+
+            color: #111;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .package-number {
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+        .lux-package h3 {
+            margin: 80px 0 15px;
+
+            font-size: 40px;
+
+            font-weight: 400;
+        }
+
+        .package-description {
+            min-height: 65px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .package-price {
+            margin: 25px 0 30px;
+
+            font-size: 44px;
+
+            letter-spacing: -2px;
+        }
+
+        .package-price small {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+        .package-features {
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+
+            border-top: 1px solid #2c2c2c;
+        }
+
+        .package-features li {
+            padding: 12px 0;
+
+            border-bottom: 1px solid #242424;
+
+            color: #aaa;
+
+            font-size: 12px;
+        }
+
+        .package-features li::before {
+            content: "— ";
+
+            color: #555;
+        }
+
+        .package-action {
+            margin-top: auto;
+
+            padding-top: 30px;
+        }
+
+        .package-action button {
+            width: 100%;
+
+            padding: 17px 20px;
+
+            background: transparent;
+
+            border: 1px solid #555;
+
+            color: #fff;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            transition: .3s ease;
+        }
+
+        .package-action button:hover {
+            background: #fff;
+
+            color: #111;
+
+            border-color: #fff;
+        }
+
+
+        /* PROCESS
+        ===================================================== */
+
+        .process {
+            padding: 150px 7%;
+
+            border-top: 1px solid #292929;
+            border-bottom: 1px solid #292929;
+        }
+
+        .process-header {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            margin-bottom: 80px;
+        }
+
+        .process-header h2 {
+            margin: 0;
+
+            font-size: clamp(45px, 6vw, 85px);
+
+            line-height: .95;
+
+            font-weight: 400;
+
+            letter-spacing: -4px;
+        }
+
+        .process-header p {
+            max-width: 430px;
+
+            color: #777;
+
+            line-height: 1.8;
+        }
+
+        .process-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 1px;
+
+            background: #333;
+        }
+
+        .process-card {
+            min-height: 220px;
+
+            padding: 35px;
+
+            background: #111;
+        }
+
+        .process-card span {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+        .process-card h3 {
+            margin: 55px 0 12px;
+
+            font-size: 22px;
+
+            font-weight: 400;
+        }
+
+        .process-card p {
+            margin: 0;
+
+            color: #777;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* CTA
+        ===================================================== */
+
+        .services-cta {
+            min-height: 75vh;
+
+            padding: 130px 7%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .services-cta::after {
+            content: "LUX";
+
+            position: absolute;
+
+            right: -5vw;
+            bottom: -18vw;
+
+            font-size: 40vw;
+
+            color: #171717;
+
+            pointer-events: none;
+        }
+
+        .services-cta > * {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .cta-label {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+        }
+
+        .services-cta h2 {
+            margin: 30px 0 40px;
+
+            font-size: clamp(65px, 11vw, 155px);
+
+            line-height: .82;
+
+            font-weight: 400;
+
+            letter-spacing: -7px;
+        }
+
+        .services-cta h2 span {
+            color: #666;
+        }
+
+        .services-cta p {
+            max-width: 430px;
+
+            color: #888;
+
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            width: max-content;
+
+            margin-top: 30px;
+
+            padding: 17px 27px;
+
+            border: 1px solid #555;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            transition: .3s ease;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+
+            color: #111;
+
+            border-color: #fff;
+        }
+
+
+        /* PAYMENT MODAL
+        ===================================================== */
+
+        .payment-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 5000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background: rgba(0,0,0,.84);
+
+            backdrop-filter: blur(14px);
+        }
+
+        .payment-overlay.active {
+            display: flex;
+        }
+
+        .payment-modal {
+            width: min(560px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 45px;
+
+            background: #151515;
+
+            border: 1px solid #383838;
+
+            position: relative;
+
+            box-shadow: 0 30px 100px rgba(0,0,0,.5);
+
+            animation: paymentIn .45s cubic-bezier(.22,1,.36,1);
+        }
+
+        @keyframes paymentIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .close-payment {
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            width: 40px;
+            height: 40px;
+
+            border: 1px solid #444;
+
+            background: transparent;
+
+            color: #fff;
+
+            font-size: 24px;
+
+            cursor: pointer;
+        }
+
+        .payment-label {
+            color: #666;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+        }
+
+        .payment-modal h2 {
+            margin: 12px 0;
+
+            font-size: 43px;
+
+            font-weight: 400;
+
+            letter-spacing: -2px;
+        }
+
+        .payment-price {
+            margin-bottom: 30px;
+
+            font-size: 30px;
+        }
+
+        .payment-price small {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+        .payment-form label {
+            display: block;
+
+            margin: 22px 0 8px;
+
+            color: #777;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .payment-form input {
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 15px;
+
+            background: #101010;
+
+            border: 1px solid #333;
+
+            outline: none;
+
+            color: #fff;
+        }
+
+        .payment-form input:focus {
+            border-color: #777;
+        }
+
+        .payment-methods {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 20px;
+        }
+
+        .payment-methods span {
+            padding: 7px 9px;
+
+            border: 1px solid #333;
+
+            color: #777;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+        }
+
+        .payment-button {
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 17px;
+
+            border: 1px solid #fff;
+
+            background: #fff;
+
+            color: #111;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+        .payment-button:disabled {
+            opacity: .5;
+
+            cursor: wait;
+        }
+
+        .payment-error {
+            display: none;
+
+            margin-top: 15px;
+
+            color: #ff9292;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+        .payment-error.show {
+            display: block;
+        }
+
+        .secure-text {
+            margin-top: 18px;
+
+            color: #666;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        /* REVEAL ANIMATION
+        ===================================================== */
+
+        .lux-reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s cubic-bezier(.22,1,.36,1);
+        }
+
+        .lux-reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* MOBILE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lux-package {
+                min-height: 520px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-intro {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+        }
+
+
+        @media(max-width: 700px) {
+
+            .services-hero {
+                min-height: 82vh;
+
+                padding:
+                    125px 6% 70px;
+            }
+
+            .services-topline {
+                left: 6%;
+                right: 6%;
+            }
+
+            .services-hero h1 {
+                font-size:
+                    clamp(56px,17vw,100px);
+
+                letter-spacing: -4px;
+            }
+
+            .hero-bottom,
+            .process-header {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+            .package-section,
+            .process,
+            .services-cta {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .package-header {
+                display: block;
+            }
+
+            .package-note {
+                margin-top: 25px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-modal {
+                padding: 35px 25px;
+            }
+
+            .services-cta h2 {
+                letter-spacing: -4px;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+
+            .lux-reveal {
+                opacity: 1;
+
+                transform: none;
+
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="services-page">
+
+<!-- LOADER -->
+
+<div class="page-loader">
+
+    <div class="loader-logo">
+        <img src="lux.png" alt="LUX">
+    </div>
+
+    <div class="loader-line"></div>
+
+</div>
+
+<div class="scroll-progress"></div>
+
+
+<!-- NAVIGATION -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="lux.png" alt="LUX Logo">
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="work.html">Work</a>
+
+            <a href="index.html#about">About</a>
+
+            <a href="services.html">
+                Want a render?
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <button
+        class="menu-toggle"
+        aria-label="Open menu"
+        aria-expanded="false">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="services-hero">
+
+    <div class="hero-grid"></div>
+
+    <div class="services-topline">
+
+        <span>01 / SERVICES</span>
+
+        <span>LUX VISUALIZATION STUDIO</span>
+
+    </div>
+
+
+    <h1>
+        Ideas,<br>
+        <span>made visible.</span>
+    </h1>
+
+
+    <div class="hero-bottom">
+
+        <p>
+
+            Architectural visualization for spaces that
+            deserve more than a technical image.
+
+            We transform drawings, models and ideas into
+            visuals that communicate atmosphere,
+            material and experience.
+
+        </p>
+
+
+        <div class="hero-scroll">
+
+            Scroll to explore
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="services-intro lux-reveal">
+
+    <div class="intro-number">
+
+        02 / WHAT WE DO
+
+    </div>
+
+
+    <div>
+
+        <h2>
+
+            We don't just render
+            buildings.
+
+            <br>
+
+            <span>
+                We build the feeling.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            From a single exterior image to a complete
+            visual package, LUX creates architectural
+            imagery designed to make your project easier
+            to understand, present and remember.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PACKAGES
+===================================================== -->
+
+<section
+    class="package-section"
+    id="packages">
+
+
+    <div class="package-header lux-reveal">
+
+        <div>
+
+            <small>
+                03 / PACKAGES
+            </small>
+
+            <h2>
+
+                Choose your<br>
+                visual language.
+
+            </h2>
+
+        </div>
+
+
+        <p class="package-note">
+
+            Simple packages for quick visuals,
+            complete presentations and high-end
+            architectural storytelling.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="package-grid">
+
+
+        <!-- BASIC -->
+
+        <article class="lux-package lux-reveal">
+
+            <div class="package-number">
+
+                <span>01</span>
+
+                <span>ESSENTIAL</span>
+
+            </div>
+
+
+            <h3>
+                Basic
+            </h3>
+
+
+            <p class="package-description">
+
+                A focused visual when you need
+                one strong image, fast.
+
+            </p>
+
+
+            <div class="package-price">
+
+                ₵300
+
+                <small>
+                    / PROJECT
+                </small>
+
+            </div>
+
+
+            <ul class="package-features">
+
+                <li>
+                    1 Exterior Render
+                </li>
+
+                <li>
+                    4K Resolution
+                </li>
+
+                <li>
+                    1 Revision
+                </li>
+
+                <li>
+                    1 Day Delivery
+                </li>
+
+            </ul>
+
+
+            <div class="package-action">
+
+                <button
+                    onclick="openPayment('basic')">
+
+                    GET STARTED — ₵300
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STANDARD -->
+
+        <article
+            class="lux-package featured lux-reveal">
+
+            <div class="package-number">
+
+                <span>02</span>
+
+                <span>STUDIO</span>
+
+            </div>
+
+
+            <h3>
+                Standard
+            </h3>
+
+
+            <p class="package-description">
+
+                A complete set of polished images
+                for a stronger presentation.
+
+            </p>
+
+
+            <div class="package-price">
+
+                ₵600
+
+                <small>
+                    / PROJECT
+                </small>
+
+            </div>
+
+
+            <ul class="package-features">
+
+                <li>
+                    3 High-Quality Renders
+                </li>
+
+                <li>
+                    8K Resolution
+                </li>
+
+                <li>
+                    2 Revisions
+                </li>
+
+                <li>
+                    2–3 Days Delivery
+                </li>
+
+            </ul>
+
+
+            <div class="package-action">
+
+                <button
+                    onclick="openPayment('standard')">
+
+                    GET STARTED — ₵600
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PREMIUM -->
+
+        <article class="lux-package lux-reveal">
+
+            <div class="package-number">
+
+                <span>03</span>
+
+                <span>DIRECTOR'S</span>
+
+            </div>
+
+
+            <h3>
+                Premium
+            </h3>
+
+
+            <p class="package-description">
+
+                A complete visual experience for
+                projects that need to stand out.
+
+            </p>
+
+
+            <div class="package-price">
+
+                ₵999
+
+                <small>
+                    / PROJECT
+                </small>
+
+            </div>
+
+
+            <ul class="package-features">
+
+                <li>
+                    5 High-Quality Renders
+                </li>
+
+                <li>
+                    8K Resolution
+                </li>
+
+                <li>
+                    4 Revisions
+                </li>
+
+                <li>
+                    Animation / Walkthrough
+                </li>
+
+                <li>
+                    3–4 Days Delivery
+                </li>
+
+            </ul>
+
+
+            <div class="package-action">
+
+                <button
+                    onclick="openPayment('premium')">
+
+                    GET STARTED — ₵999
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section class="process">
+
+
+    <div class="process-header lux-reveal">
+
+        <h2>
+
+            A simple process.
+            <br>
+
+            A better result.
+
+        </h2>
+
+
+        <p>
+
+            Once payment is confirmed,
+            your project moves through a clear
+            workflow so you always know what
+            happens next.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="process-grid">
+
+
+        <article class="process-card lux-reveal">
+
+            <span>01</span>
+
+            <h3>
+                Brief
+            </h3>
+
+            <p>
+
+                You send the drawings, model,
+                references and visual direction.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="process-card lux-reveal">
+
+            <span>02</span>
+
+            <h3>
+                Build
+            </h3>
+
+            <p>
+
+                We develop the scene, materials,
+                lighting and environment.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="process-card lux-reveal">
+
+            <span>03</span>
+
+            <h3>
+                Refine
+            </h3>
+
+            <p>
+
+                You review the image and use
+                your included revision allowance.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="process-card lux-reveal">
+
+            <span>04</span>
+
+            <h3>
+                Deliver
+            </h3>
+
+            <p>
+
+                Your final high-resolution visuals
+                are prepared and delivered.
+
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="services-cta">
+
+    <div class="cta-label">
+        04 / HAVE A PROJECT?
+    </div>
+
+
+    <h2>
+
+        Let's bring it
+        <br>
+
+        <span>
+            to life.
+        </span>
+
+    </h2>
+
+
+    <p>
+
+        Need something custom?
+
+        Tell us what you're working on and
+        we'll build a package around your project.
+
+    </p>
+
+
+    <a
+        href="mailto:your@email.com"
+        class="cta-button">
+
+        START A CONVERSATION →
+
+    </a>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     PAYMENT MODAL
+===================================================== -->
+
+<div
+    class="payment-overlay"
+    id="paymentOverlay"
+    aria-hidden="true">
+
+
+    <div
+        class="payment-modal"
+        role="dialog"
+        aria-modal="true">
+
+
+        <button
+            class="close-payment"
+            onclick="closePayment()"
+            aria-label="Close">
+
+            ×
+
+        </button>
+
+
+        <div class="payment-label">
+
+            READY TO START
+
+        </div>
+
+
+        <h2 id="paymentTitle">
+            Standard
+        </h2>
+
+
+        <div
+            class="payment-price"
+            id="paymentPrice">
+
+            ₵600
+
+            <small>
+                / PROJECT
+            </small>
+
+        </div>
+
+
+
+        <form
+            class="payment-form"
+            id="paymentForm">
+
+
+            <label for="customerEmail">
+
+                EMAIL ADDRESS
+
+            </label>
+
+
+            <input
+                id="customerEmail"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required>
+
+
+
+            <label for="customerName">
+
+                NAME
+
+            </label>
+
+
+            <input
+                id="customerName"
+                type="text"
+                autocomplete="name"
+                placeholder="Your name"
+                required>
+
+
+
+            <div class="payment-methods">
+
+                <span>
+                    CARD
+                </span>
+
+                <span>
+                    MOBILE MONEY
+                </span>
+
+                <span>
+                    BANK
+                </span>
+
+            </div>
+
+
+
+            <button
+                class="payment-button"
+                id="paymentButton"
+                type="submit">
+
+                CONTINUE TO SECURE PAYMENT
+
+            </button>
+
+        </form>
+
+
+        <div
+            class="payment-error"
+            id="paymentError">
+        </div>
+
+
+        <p class="secure-text">
+
+            You will be redirected to Paystack's
+            secure checkout to complete payment.
+
+            LUX does not collect or store your
+            card details.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <img
+                src="lux.png"
+                alt="LUX Visualization Studio">
+
+            <p>
+                Architectural visualization,
+                brought to life.
+            </p>
+
+        </div>
+
+
+        <div class="footer-socials">
+
+            <a
+                href="https://wa.me/YOURNUMBER"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                WhatsApp
+
+            </a>
+
+
+            <a
+                href="https://instagram.com/YOURUSERNAME"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Instagram
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/YOURUSERNAME/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                LinkedIn
+
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LUX Visualization Studio.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<a
+    href="#"
+    class="back-to-top"
+    aria-label="Back to top">
+
+    ↑
+
+</a>
+
+
+
+<!-- PAYSTACK -->
+
+<script src="https://js.paystack.co/v2/inline.js"></script>
+
+
+<script>
+
+    /* =====================================================
+       PACKAGE DATA
+    ===================================================== */
+
+    const PACKAGES = {
+
+        basic: {
+            name: "Basic",
+            amount: 30000,
+            display: "₵300"
+        },
+
+        standard: {
+            name: "Standard",
+            amount: 60000,
+            display: "₵600"
+        },
+
+        premium: {
+            name: "Premium",
+            amount: 99900,
+            display: "₵999"
+        }
+
+    };
+
+
+    let selectedPackage = "standard";
+
+
+    const overlay =
+        document.getElementById("paymentOverlay");
+
+    const title =
+        document.getElementById("paymentTitle");
+
+    const price =
+        document.getElementById("paymentPrice");
+
+    const form =
+        document.getElementById("paymentForm");
+
+    const button =
+        document.getElementById("paymentButton");
+
+    const errorBox =
+        document.getElementById("paymentError");
+
+
+
+    /* =====================================================
+       OPEN PAYMENT
+    ===================================================== */
+
+    function openPayment(type) {
+
+        selectedPackage = type;
+
+        const item = PACKAGES[type];
+
+
+        title.textContent =
+            item.name;
+
+
+        price.innerHTML =
+            `${item.display}
+             <small>/ PROJECT</small>`;
+
+
+        errorBox.classList.remove("show");
+
+        errorBox.textContent = "";
+
+
+        overlay.classList.add("active");
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        document.body.style.overflow =
+            "hidden";
+
+
+        setTimeout(() => {
+
+            document
+                .getElementById("customerEmail")
+                .focus();
+
+        }, 100);
+
+    }
+
+
+
+    /* =====================================================
+       CLOSE PAYMENT
+    ===================================================== */
+
+    function closePayment() {
+
+        overlay.classList.remove("active");
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.style.overflow = "";
+
+    }
+
+
+
+    overlay.addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === overlay
+            ) {
+
+                closePayment();
+
+            }
+
+        }
+    );
+
+
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closePayment();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       START PAYMENT
+    ===================================================== */
+
+    form.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById(
+                        "customerEmail"
+                    )
+                    .value
+                    .trim();
+
+
+            const name =
+                document
+                    .getElementById(
+                        "customerName"
+                    )
+                    .value
+                    .trim();
+
+
+            if (!email || !name) {
+                return;
+            }
+
+
+            button.disabled = true;
+
+            button.textContent =
+                "INITIALIZING PAYMENT...";
+
+
+            errorBox.classList.remove(
+                "show"
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/create-payment",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                packageType:
+                                    selectedPackage,
+
+                                email:
+                                    email,
+
+                                name:
+                                    name
+
+                            })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    !response.ok ||
+                    !data.authorization_url
+                ) {
+
+                    throw new Error(
+                        data.message ||
+                        "Could not initialize payment."
+                    );
+
+                }
+
+
+                /*
+                    Send customer to
+                    Paystack checkout.
+                */
+
+                window.location.href =
+                    data.authorization_url;
+
+
+            }
+
+            catch(error) {
+
+                errorBox.textContent =
+                    error.message ||
+                    "Something went wrong.";
+
+                errorBox.classList.add(
+                    "show"
+                );
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    "CONTINUE TO SECURE PAYMENT";
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ===================================================== */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            const menuToggle =
+                document.querySelector(
+                    ".menu-toggle"
+                );
+
+            const navLinks =
+                document.querySelector(
+                    ".nav-links"
+                );
+
+
+            if (
+                menuToggle &&
+                navLinks
+            ) {
+
+                menuToggle.addEventListener(
+                    "click",
+                    function() {
+
+                        const open =
+                            navLinks
+                                .classList
+                                .toggle("active");
+
+
+                        menuToggle
+                            .classList
+                            .toggle(
+                                "active",
+                                open
+                            );
+
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            open
+                        );
+
+
+                        document.body
+                            .classList
+                            .toggle(
+                                "menu-open",
+                                open
+                            );
+
+                    }
+                );
+
+
+                navLinks
+                    .querySelectorAll("a")
+                    .forEach(function(link) {
+
+                        link.addEventListener(
+                            "click",
+                            function() {
+
+                                navLinks
+                                    .classList
+                                    .remove(
+                                        "active"
+                                    );
+
+                                menuToggle
+                                    .classList
+                                    .remove(
+                                        "active"
+                                    );
+
+                                menuToggle
+                                    .setAttribute(
+                                        "aria-expanded",
+                                        "false"
+                                    );
+
+                                document.body
+                                    .classList
+                                    .remove(
+                                        "menu-open"
+                                    );
+
+                            }
+                        );
+
+                    });
+
+            }
+
+
+
+            /* =================================================
+               SCROLL REVEAL
+            ================================================= */
+
+            const reveals =
+                document.querySelectorAll(
+                    ".lux-reveal"
+                );
+
+
+            const observer =
+                new IntersectionObserver(
+                    function(entries) {
+
+                        entries.forEach(
+                            function(entry) {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target
+                                        .classList
+                                        .add(
+                                            "visible"
+                                        );
+
+
+                                    observer
+                                        .unobserve(
+                                            entry.target
+                                        );
+
+                                }
+
+                            }
+                        );
+
+                    },
+                    {
+                        threshold: .12
+                    }
+                );
+
+
+            reveals.forEach(
+                function(element) {
+
+                    observer.observe(
+                        element
+                    );
+
+                }
+            );
+
+
+
+            /* =================================================
+               BACK TO TOP
+            ================================================= */
+
+            const back =
+                document.querySelector(
+                    ".back-to-top"
+                );
+
+
+            window.addEventListener(
+                "scroll",
+                function() {
+
+                    if (back) {
+
+                        back.classList.toggle(
+                            "show",
+                            window.scrollY > 500
+                        );
+
+                    }
+
+
+                    const progress =
+                        document.querySelector(
+                            ".scroll-progress"
+                        );
+
+
+                    if (progress) {
+
+                        const max =
+                            document.documentElement
+                                .scrollHeight -
+                            window.innerHeight;
+
+
+                        progress.style.width =
+                            max > 0
+                                ? (
+                                    window.scrollY /
+                                    max *
+                                    100
+                                ) + "%"
+                                : "0%";
+
+                    }
+
+                }
+            );
+
+
+            if (back) {
+
+                back.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.preventDefault();
+
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "smooth"
+                        });
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       PAGE LOADER
+    ===================================================== */
+
+    window.addEventListener(
+        "load",
+        function() {
+
+            const loader =
+                document.querySelector(
+                    ".page-loader"
+                );
+
+
+            if (loader) {
+
+                setTimeout(
+                    function() {
+
+                        loader
+                            .classList
+                            .add("loaded");
+
+                    },
+                    700
+                );
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
